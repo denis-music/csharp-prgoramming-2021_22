@@ -1,6 +1,7 @@
 ﻿using DLWMS.ConsoleApp.Helper;
 using DLWMS.ConsoleApp.Predavanja;
 using DLWMS.ConsoleApp.Predavanja.P2;
+using DLWMS.ConsoleApp.Predavanja.P3;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace DLWMS.ConsoleApp
     {
         static void Main(string[] args)
         {
-            MainP2.Pokreni();
+            MainP3.Pokreni(new DBLogger());
         }
     }
 }

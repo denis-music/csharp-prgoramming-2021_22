@@ -49,6 +49,22 @@
     <Compile Include="Predavanja\P2\Asistent.cs" />
     <Compile Include="Predavanja\P2\MainP2.cs" />
     <Compile Include="Predavanja\P2\Profesor.cs" />
+    <Compile Include="Predavanja\P3\Loggers\APILogger.cs" />
+    <Compile Include="Predavanja\P3\Helper\DataExtractor.cs" />
+    <Compile Include="Predavanja\P3\Loggers\DBLogger.cs" />
+    <Compile Include="Predavanja\P3\Loggers\FileLogger.cs" />
+    <Compile Include="Predavanja\P3\Interface\IKorisnik.cs" />
+    <Compile Include="Predavanja\P3\Interface\ILogger.cs" />
+    <Compile Include="Predavanja\P3\Interface\IRepository.cs" />
+    <Compile Include="Predavanja\P3\Interface\IStudent.cs" />
+    <Compile Include="Predavanja\P3\Models\Korisnik.cs" />
+    <Compile Include="Predavanja\P3\Repository\KorisnikRepository.cs" />
+    <Compile Include="Predavanja\P3\MainP3.cs" />
+    <Compile Include="Predavanja\P3\Models\Osoba.cs" />
+    <Compile Include="Predavanja\P3\Helper\Poruke.cs" />
+    <Compile Include="Predavanja\P3\Repository\Repository.cs" />
+    <Compile Include="Predavanja\P3\Models\Student.cs" />
+    <Compile Include="Predavanja\P3\Repository\StudentRepository.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
