@@ -48,11 +48,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DB\InMemoryDB.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPrijava.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrijava.Designer.cs">
+      <DependentUpon>frmPrijava.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegistracija.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistracija.Designer.cs">
+      <DependentUpon>frmRegistracija.cs</DependentUpon>
     </Compile>
     <Compile Include="P4\frmIgraci.cs">
       <SubType>Form</SubType>
@@ -66,16 +79,34 @@
     <Compile Include="P4\frmXO.Designer.cs">
       <DependentUpon>frmXO.cs</DependentUpon>
     </Compile>
+    <Compile Include="P5\DLWMSApp.cs" />
+    <Compile Include="P5\Korisnik.cs" />
+    <Compile Include="P5\Validator.cs" />
+    <Compile Include="P6\frmDogadjaji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P6\frmDogadjaji.Designer.cs">
+      <DependentUpon>frmDogadjaji.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPrijava.resx">
+      <DependentUpon>frmPrijava.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistracija.resx">
+      <DependentUpon>frmRegistracija.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="P4\frmIgraci.resx">
       <DependentUpon>frmIgraci.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="P4\frmXO.resx">
       <DependentUpon>frmXO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="P6\frmDogadjaji.resx">
+      <DependentUpon>frmDogadjaji.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -85,6 +116,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -98,6 +130,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fit_logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

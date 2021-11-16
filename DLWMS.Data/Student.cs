@@ -8,16 +8,11 @@ namespace DLWMS.Data
 {
     public class Student
     {       
-
         int _indeks;
         public int GetIndeks() { return _indeks; }
         public void SetIndeks(int indeks) {  _indeks = indeks; }
-
         public string Ime { get;set; }
         public string Prezime { get; set; }
-
-
-
         public Student(int indeks, string ime, string prezime)
         {
             _indeks = indeks;
@@ -28,6 +23,5 @@ namespace DLWMS.Data
         {
             return $"{_indeks} {Ime} {Prezime}";
         }
-
     }
 }

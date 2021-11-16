@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DLWMS.WinForms.P6;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +18,7 @@ namespace DLWMS.WinForms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Form stratnaForma = new frmIgraci();                 
+            Form stratnaForma = new frmDogadjaji();                 
             Application.Run(stratnaForma);
         }
     }
