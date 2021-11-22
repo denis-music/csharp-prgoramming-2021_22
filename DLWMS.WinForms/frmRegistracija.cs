@@ -66,18 +66,24 @@ namespace DLWMS.WinForms
             foreach (var korisnik in InMemoryDB.Korisnici)
             {
                 if (korisnik.KorisnickoIme == txtKorisnickoIme.Text)
+                {
                     txtKorisnickoIme.BackColor = Color.Red;
-                else
-                    txtKorisnickoIme.BackColor = Color.Empty;
+                    return;
+                }                
             }
+            txtKorisnickoIme.BackColor = Color.Empty;
         }
 
         private void frmRegistracija_Load(object sender, EventArgs e)
         {
-            Text = txtLozinka.Text = GenerisLozinku();
+            Text = txtLozinka.Text = Generator.GenerisLozinku();
         }
 
-        private string GenerisLozinku(int brojZnakova = 10)
+      
+    }
+    public class Generator
+    {
+        public  static string GenerisLozinku(int brojZnakova = 10)
         {
             var lozinka = "";
             var dozvoljeniKarakteri = "dasp98fdsdfja98fd#$&%&/(2356442";

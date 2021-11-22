@@ -11,8 +11,15 @@ namespace DLWMS.WinForms.P5
     {
         public static bool ValidirajKontrolu(Control kontrola, ErrorProvider err, string poruka)
         {
-            if (string.IsNullOrWhiteSpace(kontrola.Text))
-            {
+            bool valid = true;
+            if (kontrola is TextBox && string.IsNullOrWhiteSpace(kontrola.Text))
+                valid = false;
+            else if (kontrola is ComboBox && (kontrola as ComboBox).SelectedIndex < 0)
+                valid = false;
+            else if (kontrola is PictureBox && (kontrola as PictureBox).Image == null)
+                valid = false;
+
+            if (valid == false) {  
                 err.SetError(kontrola, poruka);
                 return false;
             }

@@ -87,9 +87,13 @@ namespace DLWMS.WinForms
         public const string NalogNijeAktivan = "Vas nalog nije aktivan. Molimo kontaktirajte...";
         public const string ObaveznaVrijednost = "Unos ove vrijednosti je obavezan!";
         public const string KorisnikUspjesnoDodat = "Podaci o korisniku uspjesno dodati!";
+        public const string StudentUspjesnoDodat = "Podaci o studentu uspjesno dodati!";
+        public const string StudentUspjesnoModifikovan = "Podaci o studentu uspjesno modifikovani!";
 
 
-        
+
+
+
 
 
 

@@ -48,9 +48,7 @@ namespace DLWMS.WinForms.P6
             //txtObavijest.Text += $"{Calc1(Kvadriraj, 5, 8, 7)} {Environment.NewLine}";
             //txtObavijest.Text += $"{Calc2(Kubiraj, 5, 8, 7)} {Environment.NewLine}";            
 
-        }
-
-       
+        }      
 
         delegate int Operacija(int vrijednost);
         int Kvadriraj(int vrijednost) { return vrijednost * vrijednost; }
@@ -63,6 +61,7 @@ namespace DLWMS.WinForms.P6
                 rez += operacija(niz[i]);
             return rez;
         }
+
         private int Calc1(Operacija operacija, params int[] niz)
         {
             int rez = 0;
@@ -71,17 +70,16 @@ namespace DLWMS.WinForms.P6
             return rez;
         }
 
-
-
-
         private void PrvaGodina(string poruka)
         {
             MessageBox.Show($"Prva godina -> {poruka}");
         }
+
         private void DrugaGodina(string poruka)
         {
             MessageBox.Show($"Druga godina -> {poruka}");
         }
+
         private void TrecaGodina(string poruka)
         {
             MessageBox.Show($"Treca godina -> {poruka}");
@@ -90,9 +88,8 @@ namespace DLWMS.WinForms.P6
         private void button1_Click(object sender, EventArgs e)
         {
             NovaObavijest?.Invoke(txtObavijest.Text);            
-            NovaObavijest(txtObavijest.Text);
-
-            InterfejsNotifikacije?.Invoke(sender, e);
+            //NovaObavijest(txtObavijest.Text);
+            //InterfejsNotifikacije?.Invoke(sender, e);
         }
 
         private void Pretplata(CheckBox checkBox, Notifikacije metoda)
@@ -153,7 +150,7 @@ namespace DLWMS.WinForms.P6
             yield return Ocjene[2];
             yield return Ocjene[3];
 
-            Ocjene.Where(NekaMetoda);
+            //Ocjene.Where(NekaMetoda);
                 
         }
         public bool NekaMetoda(int ocjena)
