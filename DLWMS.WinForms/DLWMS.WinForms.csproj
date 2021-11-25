@@ -102,6 +102,12 @@
     </Compile>
     <Compile Include="P7\GodineStudija.cs" />
     <Compile Include="P7\Student.cs" />
+    <Compile Include="P8\frmLinq.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P8\frmLinq.Designer.cs">
+      <DependentUpon>frmLinq.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -127,6 +133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="P7\frmStudenti.resx">
       <DependentUpon>frmStudenti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="P8\frmLinq.resx">
+      <DependentUpon>frmLinq.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -154,5 +163,6 @@
   <ItemGroup>
     <None Include="Resources\fit_logo.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

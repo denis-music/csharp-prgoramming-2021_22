@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
-
-namespace DLWMS.WinForms
+﻿namespace DLWMS.WinForms.P8
 {
-    partial class Form1
+    partial class frmLinq
     {
         /// <summary>
         /// Required designer variable.
@@ -30,27 +28,34 @@ namespace DLWMS.WinForms
         /// </summary>
         private void InitializeComponent()
         {
+            this.txtIspis = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // Form1
+            // txtIspis
+            // 
+            this.txtIspis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtIspis.Location = new System.Drawing.Point(12, 12);
+            this.txtIspis.Multiline = true;
+            this.txtIspis.Name = "txtIspis";
+            this.txtIspis.Size = new System.Drawing.Size(500, 307);
+            this.txtIspis.TabIndex = 0;
+            // 
+            // frmLinq
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(572, 385);
-            this.Name = "Form1";
-            this.Text = "PRIII";
-            this.Load += new System.EventHandler(this.Form1_Load);          
+            this.ClientSize = new System.Drawing.Size(526, 330);
+            this.Controls.Add(this.txtIspis);
+            this.Name = "frmLinq";
+            this.Text = "frmLinq";
+            this.Load += new System.EventHandler(this.frmLinq_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-    }
 
-    partial class Student
-    {
-        public int Indeks { get; set; }
-        public List<int> Ocjene { get; set; } = new List<int>();
+        private System.Windows.Forms.TextBox txtIspis;
     }
 }
-

@@ -51,15 +51,38 @@ namespace DLWMS.WinForms.P7
 
         private void txtFilter_TextChanged(object sender, EventArgs e)
         {
-            var filter = txtFilter.Text;
-            var rezultat = new List<Student>();
+            //ver 4 
+            UcitajStudente(InMemoryDB.Studenti.Where(FiltrirajStudente).ToList());
 
-            foreach (var student in InMemoryDB.Studenti)
-            {
-                if (student.Ime.ToLower().Contains(filter) || student.Prezime.ToLower().Contains(filter))
-                    rezultat.Add(student);
-            }
-            UcitajStudente(rezultat);
+
+            //ver 3 
+            //UcitajStudente(InMemoryDB.Studenti.Where(
+            //    student => student.Ime.ToLower().Contains(txtFilter.Text)
+            //    || student.Prezime.ToLower().Contains(txtFilter.Text)).ToList());
+
+            //ver 2 
+            //var filter = txtFilter.Text;
+            //var rezultat = InMemoryDB.Studenti.Where(
+            //    student => student.Ime.ToLower().Contains(filter)
+            //    || student.Prezime.ToLower().Contains(filter)).ToList();           
+            //UcitajStudente(rezultat);
+
+
+            //ver 1 
+            //var filter = txtFilter.Text;
+            //var rezultat = new List<Student>();
+
+            //foreach (var student in InMemoryDB.Studenti)
+            //{
+            //    if (student.Ime.ToLower().Contains(filter) || student.Prezime.ToLower().Contains(filter))
+            //        rezultat.Add(student);
+            //}
+            //UcitajStudente(rezultat);
+        }
+
+        private bool FiltrirajStudente(Student student)
+        {
+            return student.Ime.ToLower().Contains(txtFilter.Text) || student.Prezime.ToLower().Contains(txtFilter.Text);
         }
     }
 }
