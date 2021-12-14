@@ -1,4 +1,5 @@
 ﻿using DLWMS.WinForms.DB;
+using DLWMS.WinForms.P9;
 
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,8 @@ namespace DLWMS.WinForms.P7
 {
     public partial class frmStudenti : Form
     {
+
+        KonekcijaNaBazu db = new KonekcijaNaBazu();
         public frmStudenti()
         {
             InitializeComponent();
@@ -28,7 +31,7 @@ namespace DLWMS.WinForms.P7
         private void UcitajStudente(List<Student> podaci = null)
         {
             dgvStudenti.DataSource = null;
-            dgvStudenti.DataSource = podaci ?? InMemoryDB.Studenti;
+            dgvStudenti.DataSource = podaci ?? db.Studenti.ToList(); //InMemoryDB.Studenti;
         }
 
         private void btnNoviStudent_Click(object sender, EventArgs e)
@@ -41,9 +44,13 @@ namespace DLWMS.WinForms.P7
         private void dgvStudenti_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             var student = dgvStudenti.SelectedRows[0].DataBoundItem as Student;
+            Form forma = null;
             if (student != null)
             {
-                var forma = new frmNoviStudent(student);
+                if(dgvStudenti.CurrentCell is DataGridViewButtonCell)
+                    forma = new frmPolozeniPredmeti(student);
+                else 
+                    forma  = new frmNoviStudent(student);
                 if (forma.ShowDialog() == DialogResult.OK)
                     UcitajStudente();
             }
@@ -51,8 +58,12 @@ namespace DLWMS.WinForms.P7
 
         private void txtFilter_TextChanged(object sender, EventArgs e)
         {
+
+            //ver 5
+            UcitajStudente(db.Studenti.Where(FiltrirajStudente).ToList());
+
             //ver 4 
-            UcitajStudente(InMemoryDB.Studenti.Where(FiltrirajStudente).ToList());
+            //UcitajStudente(InMemoryDB.Studenti.Where(FiltrirajStudente).ToList());
 
 
             //ver 3 
@@ -83,6 +94,11 @@ namespace DLWMS.WinForms.P7
         private bool FiltrirajStudente(Student student)
         {
             return student.Ime.ToLower().Contains(txtFilter.Text) || student.Prezime.ToLower().Contains(txtFilter.Text);
+        }
+
+        private void dgvStudenti_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

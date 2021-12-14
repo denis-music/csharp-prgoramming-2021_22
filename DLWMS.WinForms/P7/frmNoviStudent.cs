@@ -1,5 +1,7 @@
 ﻿using DLWMS.WinForms.DB;
+using DLWMS.WinForms.Helpers;
 using DLWMS.WinForms.P5;
+using DLWMS.WinForms.P9;
 
 using System;
 using System.Collections.Generic;
@@ -15,7 +17,9 @@ namespace DLWMS.WinForms.P7
 {
     public partial class frmNoviStudent : Form
     {
-        private Student student;        
+        private Student student;
+
+        KonekcijaNaBazu db = new KonekcijaNaBazu();
 
         public frmNoviStudent(Student student = null)
         {
@@ -26,6 +30,7 @@ namespace DLWMS.WinForms.P7
         private void frmNoviStudent_Load(object sender, EventArgs e)
         {
             UcitajGodineStudija();
+            UcitajSpolove();
             if (student.Id == 0)
             {
                 GeneriBrojIndeksa();
@@ -33,6 +38,13 @@ namespace DLWMS.WinForms.P7
             }
             else
                 UcitajPodatkeOStudentu();
+        }
+
+        private void UcitajSpolove()
+        {
+            cmbSpolovi.DataSource = InMemoryDB.Spolovi;
+            cmbSpolovi.ValueMember = "Id";
+            cmbSpolovi.DisplayMember = "Naziv";
         }
 
         private void UcitajPodatkeOStudentu()
@@ -45,7 +57,8 @@ namespace DLWMS.WinForms.P7
             cbAktivan.Checked = student.Aktivan;
             cmbGodinaStudija.SelectedValue = student.GodinaStudija;
             txtIndeks.Text = student.Indeks;
-            pbSlika.Image = student.Slika;
+            pbSlika.Image = ImageHelper.FromByteToImage(student.Slika);
+            cmbSpolovi.SelectedItem = student.Spol;
         }
 
         private void GenerisiLozinku()
@@ -56,7 +69,7 @@ namespace DLWMS.WinForms.P7
         private void GeneriBrojIndeksa()
         {
             //IB210158
-            txtIndeks.Text = $"IB{((DateTime.Now.Year - 2000) * 10000) + InMemoryDB.Studenti.Count + 1}";                                            
+            txtIndeks.Text = $"IB{((DateTime.Now.Year - 2000) * 10000) + db.Studenti.Count() + 1}";                                            
         }
 
         private void UcitajGodineStudija()
@@ -89,15 +102,18 @@ namespace DLWMS.WinForms.P7
                 student.Aktivan = cbAktivan.Checked;
                 student.GodinaStudija = int.Parse(cmbGodinaStudija.SelectedValue.ToString());
                 student.Indeks = txtIndeks.Text;
-                student.Slika = pbSlika.Image;
+                student.Slika = ImageHelper.FromImageToByte(pbSlika.Image);
+                student.Spol = cmbSpolovi.SelectedItem as Spol;
 
                 string poruka = Poruke.StudentUspjesnoModifikovan;
                 if (student.Id == 0)
                 {
-                    student.Id = InMemoryDB.Korisnici.Count + 1;
-                    InMemoryDB.Studenti.Add(student);
+                    //student.Id = InMemoryDB.Korisnici.Count + 1;
+                    //InMemoryDB.Studenti.Add(student);
+                    db.Studenti.Add(student);
                     poruka = Poruke.StudentUspjesnoDodat;
                 }
+                db.SaveChanges();
                 MessageBox.Show(poruka, "Informacija", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = DialogResult.OK;
                 Close();
@@ -108,6 +124,7 @@ namespace DLWMS.WinForms.P7
         {
             return Validator.ValidirajKontrolu(txtIme, err, Poruke.ObaveznaVrijednost)
                 && Validator.ValidirajKontrolu(txtPrezime, err, Poruke.ObaveznaVrijednost)
+                && Validator.ValidirajKontrolu(cmbSpolovi, err, Poruke.ObaveznaVrijednost)
                 && Validator.ValidirajKontrolu(txtIndeks, err, Poruke.ObaveznaVrijednost)
                 && Validator.ValidirajKontrolu(txtEmail, err, Poruke.ObaveznaVrijednost)
                 && Validator.ValidirajKontrolu(txtLozinka, err, Poruke.ObaveznaVrijednost)

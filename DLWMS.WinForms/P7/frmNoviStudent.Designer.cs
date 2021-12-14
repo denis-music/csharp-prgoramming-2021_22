@@ -54,6 +54,8 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btnUcitajSliku = new System.Windows.Forms.Button();
             this.txtPutanja = new System.Windows.Forms.TextBox();
+            this.cmbSpolovi = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.err)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -130,7 +132,7 @@
             // cbAktivan
             // 
             this.cbAktivan.AutoSize = true;
-            this.cbAktivan.Location = new System.Drawing.Point(97, 125);
+            this.cbAktivan.Location = new System.Drawing.Point(273, 102);
             this.cbAktivan.Name = "cbAktivan";
             this.cbAktivan.Size = new System.Drawing.Size(62, 17);
             this.cbAktivan.TabIndex = 4;
@@ -172,6 +174,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cmbSpolovi);
+            this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.dtpDatumRodjenja);
             this.groupBox2.Controls.Add(this.txtPrezime);
@@ -180,7 +184,7 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Location = new System.Drawing.Point(214, 140);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(353, 101);
+            this.groupBox2.Size = new System.Drawing.Size(353, 127);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             // 
@@ -205,9 +209,9 @@
             this.groupBox1.Controls.Add(this.txtEmail);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(214, 247);
+            this.groupBox1.Location = new System.Drawing.Point(214, 265);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(353, 150);
+            this.groupBox1.Size = new System.Drawing.Size(353, 130);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
@@ -216,7 +220,7 @@
             this.cmbGodinaStudija.FormattingEnabled = true;
             this.cmbGodinaStudija.Location = new System.Drawing.Point(96, 98);
             this.cmbGodinaStudija.Name = "cmbGodinaStudija";
-            this.cmbGodinaStudija.Size = new System.Drawing.Size(239, 21);
+            this.cmbGodinaStudija.Size = new System.Drawing.Size(129, 21);
             this.cmbGodinaStudija.TabIndex = 3;
             // 
             // label8
@@ -285,6 +289,23 @@
             this.txtPutanja.Size = new System.Drawing.Size(176, 20);
             this.txtPutanja.TabIndex = 29;
             // 
+            // cmbSpolovi
+            // 
+            this.cmbSpolovi.FormattingEnabled = true;
+            this.cmbSpolovi.Location = new System.Drawing.Point(97, 98);
+            this.cmbSpolovi.Name = "cmbSpolovi";
+            this.cmbSpolovi.Size = new System.Drawing.Size(129, 21);
+            this.cmbSpolovi.TabIndex = 21;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(13, 102);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(31, 13);
+            this.label9.TabIndex = 22;
+            this.label9.Text = "Spol:";
+            // 
             // frmNoviStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -340,5 +361,7 @@
         private System.Windows.Forms.Button btnUcitajSliku;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.TextBox txtPutanja;
+        private System.Windows.Forms.ComboBox cmbSpolovi;
+        private System.Windows.Forms.Label label9;
     }
 }
