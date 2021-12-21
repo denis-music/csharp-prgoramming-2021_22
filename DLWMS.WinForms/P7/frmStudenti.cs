@@ -16,7 +16,7 @@ namespace DLWMS.WinForms.P7
     public partial class frmStudenti : Form
     {
 
-        KonekcijaNaBazu db = new KonekcijaNaBazu();
+        KonekcijaNaBazu db = DLWMSdb.Baza; //new KonekcijaNaBazu();
         public frmStudenti()
         {
             InitializeComponent();
@@ -31,7 +31,9 @@ namespace DLWMS.WinForms.P7
         private void UcitajStudente(List<Student> podaci = null)
         {
             dgvStudenti.DataSource = null;
+            //dgvStudenti.DataSource = podaci ?? db.Studenti.Include("Spol").ToList(); //InMemoryDB.Studenti;
             dgvStudenti.DataSource = podaci ?? db.Studenti.ToList(); //InMemoryDB.Studenti;
+
         }
 
         private void btnNoviStudent_Click(object sender, EventArgs e)

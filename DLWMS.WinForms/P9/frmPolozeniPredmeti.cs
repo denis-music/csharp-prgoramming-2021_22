@@ -1,4 +1,5 @@
 ﻿using DLWMS.WinForms.DB;
+using DLWMS.WinForms.P11;
 using DLWMS.WinForms.P5;
 
 using System;
@@ -16,7 +17,11 @@ namespace DLWMS.WinForms.P9
     public partial class frmPolozeniPredmeti : Form
     {
         private P7.Student student;
-        public frmPolozeniPredmeti(P7.Student student)
+
+        KonekcijaNaBazu db = DLWMSdb.Baza;
+
+
+        public frmPolozeniPredmeti(P7.Student student)//1
         {
             InitializeComponent();
             this.student = student;
@@ -29,16 +34,31 @@ namespace DLWMS.WinForms.P9
             {
                 UcitajPolozenePredmete();
                 UcitajPredmete();
+                UcitajUloge();
+                UcitajUlogeStudenta();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message + Environment.NewLine + ex.InnerException?.Message);
             }
+        }
+
+        private void UcitajUlogeStudenta()
+        {
+            dgvUloge.DataSource = null;
+            dgvUloge.DataSource = student.Uloge.ToList();
+        }
+
+        private void UcitajUloge()
+        {
+            cmbUloge.DataSource = db.Uloge.ToList(); //InMemoryDB.NPP;
+            cmbUloge.ValueMember = "Id";
+            cmbUloge.DisplayMember = "Naziv";
         }
 
         private void UcitajPredmete()
         {
-            cmbPredmeti.DataSource = InMemoryDB.NPP;
+            cmbPredmeti.DataSource = db.Predmeti.ToList(); //InMemoryDB.NPP;
             cmbPredmeti.ValueMember = "Id";
             cmbPredmeti.DisplayMember = "Naziv";
         }
@@ -46,7 +66,8 @@ namespace DLWMS.WinForms.P9
         private void UcitajPolozenePredmete()
         {
             dgvPolozeniPredmeti.DataSource = null;
-            dgvPolozeniPredmeti.DataSource = student.PolozeniPredmeti;
+            var polozeni = db.StudentiPredmeti.Include("Predmet").Where(s => s.Student.Id == student.Id).ToList(); //student.PolozeniPredmeti;
+            dgvPolozeniPredmeti.DataSource = polozeni;
         }
 
         private void btnDodajPolozeni_Click(object sender, EventArgs e)
@@ -56,14 +77,26 @@ namespace DLWMS.WinForms.P9
                 MessageBox.Show("Predmet je već dodat!!!");
             if (ValidirajUnos() && nePostoji)
             {
-                var polozeni = new PolozeniPredmet()
+                //var polozeni = new PolozeniPredmet()
+                //{
+                //    DatumPolaganja = dtpDatumPolaganja.Value,
+                //    Id = student.PolozeniPredmeti.Count + 1,
+                //    Ocjena = int.Parse(cmbOcjene.Text),
+                //    Predmet = cmbPredmeti.SelectedItem as Predmet
+                //};
+                //student.PolozeniPredmeti.Add(polozeni);
+
+                var polozeni = new StudentPredmet()
                 {
                     DatumPolaganja = dtpDatumPolaganja.Value,
-                    Id = student.PolozeniPredmeti.Count + 1,
                     Ocjena = int.Parse(cmbOcjene.Text),
-                    Predmet = cmbPredmeti.SelectedItem as Predmet
+                    Predmet = cmbPredmeti.SelectedItem as Predmet,
+                    Student = student,
                 };
-                student.PolozeniPredmeti.Add(polozeni);
+                //student.PolozeniPredmeti.Add(polozeni);
+                db.StudentiPredmeti.Add(polozeni);
+                db.SaveChanges();
+
                 UcitajPolozenePredmete();
             }
         }
@@ -84,6 +117,22 @@ namespace DLWMS.WinForms.P9
         private void cmbPredmeti_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnDodajUlogu_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Uloga uloga = cmbUloge.SelectedItem as Uloga;
+                student.Uloge.Add(uloga);
+                db.SaveChanges();
+                UcitajUlogeStudenta();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
         }
     }
 }

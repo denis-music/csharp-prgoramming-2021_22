@@ -38,8 +38,12 @@
             this.Predmet = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Datum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ocjena = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvUloge = new System.Windows.Forms.DataGridView();
+            this.cmbUloge = new System.Windows.Forms.ComboBox();
+            this.btnDodajUlogu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPolozeniPredmeti)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.err)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUloge)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvPolozeniPredmeti
@@ -104,7 +108,7 @@
             // Predmet
             // 
             this.Predmet.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Predmet.DataPropertyName = "NazivPredmeta";
+            this.Predmet.DataPropertyName = "Predmet";
             this.Predmet.HeaderText = "Predmet";
             this.Predmet.Name = "Predmet";
             this.Predmet.ReadOnly = true;
@@ -124,11 +128,40 @@
             this.Ocjena.Name = "Ocjena";
             this.Ocjena.ReadOnly = true;
             // 
+            // dgvUloge
+            // 
+            this.dgvUloge.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUloge.Location = new System.Drawing.Point(12, 295);
+            this.dgvUloge.Name = "dgvUloge";
+            this.dgvUloge.Size = new System.Drawing.Size(602, 112);
+            this.dgvUloge.TabIndex = 5;
+            // 
+            // cmbUloge
+            // 
+            this.cmbUloge.FormattingEnabled = true;
+            this.cmbUloge.Location = new System.Drawing.Point(12, 268);
+            this.cmbUloge.Name = "cmbUloge";
+            this.cmbUloge.Size = new System.Drawing.Size(204, 21);
+            this.cmbUloge.TabIndex = 6;
+            // 
+            // btnDodajUlogu
+            // 
+            this.btnDodajUlogu.Location = new System.Drawing.Point(539, 266);
+            this.btnDodajUlogu.Name = "btnDodajUlogu";
+            this.btnDodajUlogu.Size = new System.Drawing.Size(75, 23);
+            this.btnDodajUlogu.TabIndex = 7;
+            this.btnDodajUlogu.Text = "Dodaj";
+            this.btnDodajUlogu.UseVisualStyleBackColor = true;
+            this.btnDodajUlogu.Click += new System.EventHandler(this.btnDodajUlogu_Click);
+            // 
             // frmPolozeniPredmeti
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(627, 250);
+            this.ClientSize = new System.Drawing.Size(627, 423);
+            this.Controls.Add(this.btnDodajUlogu);
+            this.Controls.Add(this.cmbUloge);
+            this.Controls.Add(this.dgvUloge);
             this.Controls.Add(this.btnDodajPolozeni);
             this.Controls.Add(this.dtpDatumPolaganja);
             this.Controls.Add(this.cmbOcjene);
@@ -140,6 +173,7 @@
             this.Load += new System.EventHandler(this.frmPolozeniPredmeti_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPolozeniPredmeti)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.err)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUloge)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -155,5 +189,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Predmet;
         private System.Windows.Forms.DataGridViewTextBoxColumn Datum;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ocjena;
+        private System.Windows.Forms.DataGridView dgvUloge;
+        private System.Windows.Forms.ComboBox cmbUloge;
+        private System.Windows.Forms.Button btnDodajUlogu;
     }
 }

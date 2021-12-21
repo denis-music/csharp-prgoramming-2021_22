@@ -19,7 +19,7 @@ namespace DLWMS.WinForms.P7
     {
         private Student student;
 
-        KonekcijaNaBazu db = new KonekcijaNaBazu();
+        KonekcijaNaBazu db = DLWMSdb.Baza;//new KonekcijaNaBazu();
 
         public frmNoviStudent(Student student = null)
         {
@@ -42,7 +42,7 @@ namespace DLWMS.WinForms.P7
 
         private void UcitajSpolove()
         {
-            cmbSpolovi.DataSource = InMemoryDB.Spolovi;
+            cmbSpolovi.DataSource = db.Spolovi.ToList(); //InMemoryDB.Spolovi;
             cmbSpolovi.ValueMember = "Id";
             cmbSpolovi.DisplayMember = "Naziv";
         }
@@ -113,6 +113,8 @@ namespace DLWMS.WinForms.P7
                     db.Studenti.Add(student);
                     poruka = Poruke.StudentUspjesnoDodat;
                 }
+                else
+                    db.Entry(student).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 MessageBox.Show(poruka, "Informacija", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = DialogResult.OK;

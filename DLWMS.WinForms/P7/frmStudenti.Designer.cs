@@ -34,6 +34,7 @@
             this.Indeks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Prezime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Spol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DatumRodjenja = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Aktivan = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -50,6 +51,7 @@
             this.Indeks,
             this.Ime,
             this.Prezime,
+            this.Spol,
             this.DatumRodjenja,
             this.Email,
             this.Aktivan,
@@ -103,6 +105,13 @@
             this.Prezime.HeaderText = "Prezime";
             this.Prezime.Name = "Prezime";
             this.Prezime.ReadOnly = true;
+            // 
+            // Spol
+            // 
+            this.Spol.DataPropertyName = "Spol";
+            this.Spol.HeaderText = "Spol";
+            this.Spol.Name = "Spol";
+            this.Spol.ReadOnly = true;
             // 
             // DatumRodjenja
             // 
@@ -158,6 +167,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Indeks;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ime;
         private System.Windows.Forms.DataGridViewTextBoxColumn Prezime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Spol;
         private System.Windows.Forms.DataGridViewTextBoxColumn DatumRodjenja;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Aktivan;
