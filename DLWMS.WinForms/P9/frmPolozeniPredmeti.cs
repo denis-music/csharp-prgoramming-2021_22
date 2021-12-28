@@ -134,5 +134,26 @@ namespace DLWMS.WinForms.P9
 
             }
         }
+
+        private void btnPrintajUvjerenje_Click(object sender, EventArgs e)
+        {
+            var dtoUjerenjeOPolozenim = new dtoUjerenjeOPolozenim()
+            {
+                Indeks = student.Indeks,
+                ImePrezime = $"{student.Ime} {student.Prezime}",
+                Polozeni = dgvPolozeniPredmeti.DataSource as List<StudentPredmet>
+            };
+            var frmIzvjestaji = new P12.frmIzvjestaji(dtoUjerenjeOPolozenim);
+            frmIzvjestaji.Show();
+
+        }
+    }
+
+    public class dtoUjerenjeOPolozenim
+    {
+        public string Indeks { get; set; }
+        public string ImePrezime { get; set; }        
+
+        public List<StudentPredmet> Polozeni { get; set; }
     }
 }
