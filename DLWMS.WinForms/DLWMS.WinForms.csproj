@@ -168,6 +168,7 @@
     <Compile Include="P8\frmLinq.Designer.cs">
       <DependentUpon>frmLinq.cs</DependentUpon>
     </Compile>
+    <Compile Include="P9\dtoUvjerenjeOPolozenim.cs" />
     <Compile Include="P9\frmPolozeniPredmeti.cs">
       <SubType>Form</SubType>
     </Compile>

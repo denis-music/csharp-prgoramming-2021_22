@@ -16,14 +16,14 @@ namespace DLWMS.WinForms.P12
 {
     public partial class frmIzvjestaji : Form
     {
-        private dtoUjerenjeOPolozenim dtoUjerenjeOPolozenim;
+        private dtoUvjerenjeOPolozenim dtoUjerenjeOPolozenim;
 
         public frmIzvjestaji()
         {
             InitializeComponent();
         }
 
-        public frmIzvjestaji(dtoUjerenjeOPolozenim dtoUjerenjeOPolozenim) : this()
+        public frmIzvjestaji(dtoUvjerenjeOPolozenim dtoUjerenjeOPolozenim) : this()
         {
             this.dtoUjerenjeOPolozenim = dtoUjerenjeOPolozenim;
         }

@@ -20,7 +20,6 @@ namespace DLWMS.WinForms.P9
 
         KonekcijaNaBazu db = DLWMSdb.Baza;
 
-
         public frmPolozeniPredmeti(P7.Student student)//1
         {
             InitializeComponent();
@@ -137,7 +136,7 @@ namespace DLWMS.WinForms.P9
 
         private void btnPrintajUvjerenje_Click(object sender, EventArgs e)
         {
-            var dtoUjerenjeOPolozenim = new dtoUjerenjeOPolozenim()
+            var dtoUjerenjeOPolozenim = new dtoUvjerenjeOPolozenim()
             {
                 Indeks = student.Indeks,
                 ImePrezime = $"{student.Ime} {student.Prezime}",
@@ -147,13 +146,5 @@ namespace DLWMS.WinForms.P9
             frmIzvjestaji.Show();
 
         }
-    }
-
-    public class dtoUjerenjeOPolozenim
-    {
-        public string Indeks { get; set; }
-        public string ImePrezime { get; set; }        
-
-        public List<StudentPredmet> Polozeni { get; set; }
     }
 }
