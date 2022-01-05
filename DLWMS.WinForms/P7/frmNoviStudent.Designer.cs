@@ -43,6 +43,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cmbSpolovi = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.btnSacuvaj = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cmbGodinaStudija = new System.Windows.Forms.ComboBox();
@@ -54,8 +56,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btnUcitajSliku = new System.Windows.Forms.Button();
             this.txtPutanja = new System.Windows.Forms.TextBox();
-            this.cmbSpolovi = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
+            this.clbUloge = new System.Windows.Forms.CheckedListBox();
             ((System.ComponentModel.ISupportInitialize)(this.err)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -188,6 +189,23 @@
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             // 
+            // cmbSpolovi
+            // 
+            this.cmbSpolovi.FormattingEnabled = true;
+            this.cmbSpolovi.Location = new System.Drawing.Point(97, 98);
+            this.cmbSpolovi.Name = "cmbSpolovi";
+            this.cmbSpolovi.Size = new System.Drawing.Size(129, 21);
+            this.cmbSpolovi.TabIndex = 21;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(13, 102);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(31, 13);
+            this.label9.TabIndex = 22;
+            this.label9.Text = "Spol:";
+            // 
             // btnSacuvaj
             // 
             this.btnSacuvaj.Location = new System.Drawing.Point(492, 403);
@@ -289,28 +307,20 @@
             this.txtPutanja.Size = new System.Drawing.Size(176, 20);
             this.txtPutanja.TabIndex = 29;
             // 
-            // cmbSpolovi
+            // clbUloge
             // 
-            this.cmbSpolovi.FormattingEnabled = true;
-            this.cmbSpolovi.Location = new System.Drawing.Point(97, 98);
-            this.cmbSpolovi.Name = "cmbSpolovi";
-            this.cmbSpolovi.Size = new System.Drawing.Size(129, 21);
-            this.cmbSpolovi.TabIndex = 21;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(13, 102);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(31, 13);
-            this.label9.TabIndex = 22;
-            this.label9.Text = "Spol:";
+            this.clbUloge.FormattingEnabled = true;
+            this.clbUloge.Location = new System.Drawing.Point(573, 149);
+            this.clbUloge.Name = "clbUloge";
+            this.clbUloge.Size = new System.Drawing.Size(193, 94);
+            this.clbUloge.TabIndex = 30;
             // 
             // frmNoviStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(580, 430);
+            this.ClientSize = new System.Drawing.Size(784, 430);
+            this.Controls.Add(this.clbUloge);
             this.Controls.Add(this.txtPutanja);
             this.Controls.Add(this.btnUcitajSliku);
             this.Controls.Add(this.pbSlika);
@@ -320,6 +330,7 @@
             this.Controls.Add(this.btnSacuvaj);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmNoviStudent";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmNoviStudent";
             this.Load += new System.EventHandler(this.frmNoviStudent_Load);
             ((System.ComponentModel.ISupportInitialize)(this.err)).EndInit();
@@ -363,5 +374,6 @@
         private System.Windows.Forms.TextBox txtPutanja;
         private System.Windows.Forms.ComboBox cmbSpolovi;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.CheckedListBox clbUloge;
     }
 }

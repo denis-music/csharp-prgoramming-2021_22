@@ -81,6 +81,8 @@ namespace DLWMS.WinForms
         public const string NedozvoljenaOperacija = "Nedozvoljena operacija...";
         public const string PodaciNisuDostupni = "Zahtijevani podaci trenutno nisu dostupni.";
         public readonly string NedovoljnePrivilegije;// = "Nedozvoljena operacija..."
+        public  const string KrajRada = "Da li zelite zatvoriti aplikaciju?";
+        public const string Pitanje = "Pitanje";
         public const string OslobadjamResurse = "Oslobadjam zauzete reseurse.";
         public const string DobroDosli = "Dobro dosli";
         public const string KorisnickiNalogNePostoji = "Korisnicki nalog ne postoji.";

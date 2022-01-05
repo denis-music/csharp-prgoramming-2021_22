@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvStudenti = new System.Windows.Forms.DataGridView();
-            this.btnNoviStudent = new System.Windows.Forms.Button();
-            this.txtFilter = new System.Windows.Forms.TextBox();
             this.Indeks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Prezime = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,6 +37,8 @@
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Aktivan = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Polozeni = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnNoviStudent = new System.Windows.Forms.Button();
+            this.txtFilter = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudenti)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,24 +64,6 @@
             this.dgvStudenti.TabIndex = 0;
             this.dgvStudenti.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudenti_CellContentClick);
             this.dgvStudenti.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudenti_CellDoubleClick);
-            // 
-            // btnNoviStudent
-            // 
-            this.btnNoviStudent.Location = new System.Drawing.Point(713, 21);
-            this.btnNoviStudent.Name = "btnNoviStudent";
-            this.btnNoviStudent.Size = new System.Drawing.Size(75, 23);
-            this.btnNoviStudent.TabIndex = 1;
-            this.btnNoviStudent.Text = "Novi student";
-            this.btnNoviStudent.UseVisualStyleBackColor = true;
-            this.btnNoviStudent.Click += new System.EventHandler(this.btnNoviStudent_Click);
-            // 
-            // txtFilter
-            // 
-            this.txtFilter.Location = new System.Drawing.Point(13, 23);
-            this.txtFilter.Name = "txtFilter";
-            this.txtFilter.Size = new System.Drawing.Size(694, 20);
-            this.txtFilter.TabIndex = 2;
-            this.txtFilter.TextChanged += new System.EventHandler(this.txtFilter_TextChanged);
             // 
             // Indeks
             // 
@@ -142,6 +124,24 @@
             this.Polozeni.Text = "Polozeni";
             this.Polozeni.UseColumnTextForButtonValue = true;
             // 
+            // btnNoviStudent
+            // 
+            this.btnNoviStudent.Location = new System.Drawing.Point(713, 21);
+            this.btnNoviStudent.Name = "btnNoviStudent";
+            this.btnNoviStudent.Size = new System.Drawing.Size(75, 23);
+            this.btnNoviStudent.TabIndex = 1;
+            this.btnNoviStudent.Text = "Novi student";
+            this.btnNoviStudent.UseVisualStyleBackColor = true;
+            this.btnNoviStudent.Click += new System.EventHandler(this.btnNoviStudent_Click);
+            // 
+            // txtFilter
+            // 
+            this.txtFilter.Location = new System.Drawing.Point(13, 23);
+            this.txtFilter.Name = "txtFilter";
+            this.txtFilter.Size = new System.Drawing.Size(694, 20);
+            this.txtFilter.TabIndex = 2;
+            this.txtFilter.TextChanged += new System.EventHandler(this.txtFilter_TextChanged);
+            // 
             // frmStudenti
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -151,6 +151,7 @@
             this.Controls.Add(this.btnNoviStudent);
             this.Controls.Add(this.dgvStudenti);
             this.Name = "frmStudenti";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmStudenti";
             this.Load += new System.EventHandler(this.frmStudenti_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudenti)).EndInit();

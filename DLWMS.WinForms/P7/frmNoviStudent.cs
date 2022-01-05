@@ -1,5 +1,6 @@
 ﻿using DLWMS.WinForms.DB;
 using DLWMS.WinForms.Helpers;
+using DLWMS.WinForms.P11;
 using DLWMS.WinForms.P5;
 using DLWMS.WinForms.P9;
 
@@ -31,6 +32,7 @@ namespace DLWMS.WinForms.P7
         {
             UcitajGodineStudija();
             UcitajSpolove();
+            UcitajUloge();
             if (student.Id == 0)
             {
                 GeneriBrojIndeksa();
@@ -38,6 +40,13 @@ namespace DLWMS.WinForms.P7
             }
             else
                 UcitajPodatkeOStudentu();
+        }
+
+        private void UcitajUloge()
+        {
+            clbUloge.DataSource = db.Uloge.ToList(); //InMemoryDB.Spolovi;
+            clbUloge.ValueMember = "Id";
+            clbUloge.DisplayMember = "Naziv";
         }
 
         private void UcitajSpolove()
@@ -59,6 +68,15 @@ namespace DLWMS.WinForms.P7
             txtIndeks.Text = student.Indeks;
             pbSlika.Image = ImageHelper.FromByteToImage(student.Slika);
             cmbSpolovi.SelectedItem = student.Spol;
+
+            for (int i = 0; i < clbUloge.Items.Count; i++)
+            {
+                if (student.Uloge.Contains(clbUloge.Items[i]))
+                    clbUloge.SetItemChecked(i, true);
+
+            }
+
+
         }
 
         private void GenerisiLozinku()
@@ -104,6 +122,8 @@ namespace DLWMS.WinForms.P7
                 student.Indeks = txtIndeks.Text;
                 student.Slika = ImageHelper.FromImageToByte(pbSlika.Image);
                 student.Spol = cmbSpolovi.SelectedItem as Spol;
+                student.Uloge = clbUloge.CheckedItems.Cast<Uloga>().ToList();
+
 
                 string poruka = Poruke.StudentUspjesnoModifikovan;
                 if (student.Id == 0)
