@@ -18,7 +18,7 @@ namespace DLWMS.WinForms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Form stratnaForma = new frmGlavna(); //P7.frmStudenti();                 
+            Form stratnaForma = new P14.frmAsync(); //P7.frmStudenti();                 
             Application.Run(stratnaForma);
         }
     }

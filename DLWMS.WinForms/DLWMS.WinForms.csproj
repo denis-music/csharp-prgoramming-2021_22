@@ -127,6 +127,12 @@
     <Compile Include="P12\frmIzvjestaji.Designer.cs">
       <DependentUpon>frmIzvjestaji.cs</DependentUpon>
     </Compile>
+    <Compile Include="P14\frmAsync.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P14\frmAsync.Designer.cs">
+      <DependentUpon>frmAsync.cs</DependentUpon>
+    </Compile>
     <Compile Include="P4\frmIgraci.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,6 +203,9 @@
       <DependentUpon>frmIzvjestaji.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="P12\rptUvjerenjeOIspitima.rdlc" />
+    <EmbeddedResource Include="P14\frmAsync.resx">
+      <DependentUpon>frmAsync.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="P4\frmIgraci.resx">
       <DependentUpon>frmIgraci.cs</DependentUpon>
     </EmbeddedResource>
@@ -260,6 +269,7 @@
     <None Include="Resources\fit_logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="P13\ReadMe.txt" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
